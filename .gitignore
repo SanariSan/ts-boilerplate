@@ -1,0 +1,9 @@
+node_modules
+*.ignore*
+ignore/**/*
+dist*
+logs*
+.vscode/**/*
+*.http
+*.env*
+!.env.copy

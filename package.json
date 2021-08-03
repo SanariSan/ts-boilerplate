@@ -1,0 +1,35 @@
+{
+	"name": "ts-boilerplate",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "SanariSan <SanariSan@users.noreply.github.com>",
+	"license": "MIT",
+	"scripts": {
+		"start": "yarn build-linux && yarn launch-dev",
+		"--": "---",
+		"start-prod-linux": "yarn build-linux && yarn launch-prod",
+		"build-linux": "yarn drop-build-linux && tsc",
+		"drop-build-linux": "rm -rf ./dist",
+		"drop-logs-linux": "rm -rf ./logs",
+		"---": "---",
+		"start-prod-win": "yarn build-win && yarn launch-prod",
+		"build-win": "yarn drop-build-win && tsc",
+		"drop-build-win": "del /f /s /q \"./dist\"",
+		"drop-logs-win": "del /f /s /q \"./logs\"",
+		"----": "---",
+		"launch-prod": "cross-env NODE_ENV=production node -r dotenv/config ./dist/app.js",
+		"launch-dev": "cross-env NODE_ENV=development node -r dotenv/config ./dist/app.js",
+		"prettier": "prettier -w --config ./.prettierrc.json ."
+	},
+	"dependencies": {
+		"@types/node": "^16.4.10",
+		"axios": "^0.21.1",
+		"cross-env": "^7.0.3",
+		"dotenv": "^10.0.0",
+		"typescript": "^4.3.5"
+	},
+	"devDependencies": {
+		"madge": "^5.0.1",
+		"prettier": "^2.3.2"
+	}
+}
